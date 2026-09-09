@@ -2,6 +2,8 @@
 
 禅道（ZenTao）**MCP + CLI**，直连 REST API（`api.php/v1`）。只做 Bug：读详情 / 列表 / 搜索，写评论与状态流转。写操作默认 dry-run。
 
+不必 clone。MCP 启动时会带上用法（`instructions`）。也可 `npx -y @dannyvan/zentao-mcp skill` 打印同一份。
+
 ## 安装
 
 ```bash
@@ -46,6 +48,7 @@ npx -y @dannyvan/zentao-mcp
 ## CLI
 
 ```bash
+npx -y @dannyvan/zentao-mcp skill
 npx -y @dannyvan/zentao-mcp help
 npx -y @dannyvan/zentao-mcp get-bug 123
 npx -y @dannyvan/zentao-mcp list-bugs --product 1 --limit 50
