@@ -1,0 +1,48 @@
+{
+  "name": "@dannyvan/zentao-mcp",
+  "version": "0.1.0",
+  "description": "禅道 MCP + CLI，直连 REST API v1。只做 Bug，写操作默认 dry-run。",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "zentao-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyvan/zentao-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dannyvan/zentao-mcp/issues"
+  },
+  "homepage": "https://github.com/dannyvan/zentao-mcp#readme",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "zentao",
+    "bug"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.1",
+    "axios": "^1.7.9",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  }
+}
