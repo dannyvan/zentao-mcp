@@ -5,12 +5,14 @@
  * 输出一律 JSON；出错时 JSON 写 stderr，退出码非 0。
  */
 import { ZentaoClient, clientFromEnv, formatZentaoError } from "./zentao-client.js";
+import { skillInstructions } from "./skill.js";
 
 const USAGE = `zentao-mcp —— 禅道 CLI / MCP 双门面
 
 用法:
   zentao-mcp                          以 MCP server 启动（stdio，默认）
   zentao-mcp serve                    同上，显式写法
+  zentao-mcp skill                    打印给 agent 的用法（无需认证）
   zentao-mcp <命令> [参数]             CLI 模式
 
 读命令（无副作用）:
@@ -99,6 +101,10 @@ export async function runCli(argv: string[]): Promise<void> {
   const [command, ...rest] = argv;
   if (!command || command === "help" || command === "--help" || command === "-h") {
     console.log(USAGE);
+    return;
+  }
+  if (command === "skill") {
+    console.log(skillInstructions());
     return;
   }
 

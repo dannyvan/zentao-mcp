@@ -8,11 +8,11 @@ description: >-
 
 # 禅道 Bug（@dannyvan/zentao-mcp）
 
-只做 Bug。走本包的 MCP 或 CLI，**不要**装官方 `zentao-cli`。
+只做 Bug。走本包的 MCP 或 CLI，**不要**装官方 `zentao-cli`。不必 clone 本仓。
 
 ## 启动
 
-MCP：
+MCP（`npx` 即可）：
 
 ```json
 {

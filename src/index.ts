@@ -18,6 +18,7 @@ import { clientFromEnv } from "./zentao-client.js";
 import { registerReadTools } from "./tools/read.js";
 import { registerWriteTools } from "./tools/write.js";
 import { runCli } from "./cli.js";
+import { skillInstructions } from "./skill.js";
 
 function assertUrl(): void {
   if (!process.env.ZENTAO_URL?.trim()) {
@@ -40,7 +41,10 @@ function assertAuth(): void {
 async function serve(): Promise<void> {
   assertUrl();
   assertAuth();
-  const server = new McpServer({ name: "zentao-mcp", version: "0.1.0" });
+  const server = new McpServer(
+    { name: "zentao-mcp", version: "0.1.1" },
+    { instructions: skillInstructions() },
+  );
   const client = clientFromEnv();
   registerReadTools(server, client);
   registerWriteTools(server, client);
@@ -54,7 +58,7 @@ async function main(): Promise<void> {
     await serve();
     return;
   }
-  const needsAuth = !["help", "--help", "-h"].includes(argv[0]);
+  const needsAuth = !["help", "--help", "-h", "skill"].includes(argv[0]);
   if (needsAuth) {
     assertUrl();
     assertAuth();

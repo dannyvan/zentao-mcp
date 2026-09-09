@@ -1,3 +1,5 @@
 # zentao-mcp
 
-查 / 改禅道 Bug、配本包 MCP 或 `npx @dannyvan/zentao-mcp` 时，先读 [`skills/zentao-mcp/SKILL.md`](skills/zentao-mcp/SKILL.md) 再动手。
+使用者不必 clone。配 `npx -y @dannyvan/zentao-mcp` 后，MCP `instructions` 会带上同一份用法。
+
+本仓开发时读 [`skills/zentao-mcp/SKILL.md`](skills/zentao-mcp/SKILL.md)。`npx -y @dannyvan/zentao-mcp skill` 打印同一份。
