@@ -57,8 +57,8 @@
 `package.json` 要点：
 
 - `name`: `@dannyvan/zentao-mcp`
-- `bin`: `{ "zentao-mcp": "dist/index.js" }`
-- `files`: `["dist", "README.md"]`
+- `bin`: `{ "zentao-mcp": "bin/zentao-mcp" }`（薄包装，保证本仓目录里 `npx` 也能找到命令）
+- `files`: `["dist", "bin", "scripts", "README.md", "skills"]`
 - `publishConfig.access`: `public`
 - `prepublishOnly`: `npm run build`
 - `engines.node`: `>=18`
