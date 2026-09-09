@@ -2,6 +2,8 @@
 
 禅道（ZenTao）**MCP + CLI**，直连 REST API（`api.php/v1`）。只做 Bug：读详情 / 列表 / 搜索，写评论与状态流转。写操作默认 dry-run。
 
+Agent 查 / 改禅道 Bug 时先读 [`skills/zentao-mcp/SKILL.md`](skills/zentao-mcp/SKILL.md)。
+
 ## 安装
 
 ```bash
