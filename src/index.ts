@@ -42,7 +42,7 @@ async function serve(): Promise<void> {
   assertUrl();
   assertAuth();
   const server = new McpServer(
-    { name: "zentao-mcp", version: "0.1.1" },
+    { name: "zentao-mcp", version: "0.1.2" },
     { instructions: skillInstructions() },
   );
   const client = clientFromEnv();
@@ -58,7 +58,7 @@ async function main(): Promise<void> {
     await serve();
     return;
   }
-  const needsAuth = !["help", "--help", "-h", "skill"].includes(argv[0]);
+  const needsAuth = !["help", "--help", "-h", "skill", "install-skill"].includes(argv[0]);
   if (needsAuth) {
     assertUrl();
     assertAuth();

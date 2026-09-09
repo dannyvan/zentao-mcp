@@ -2,12 +2,21 @@
 
 禅道（ZenTao）**MCP + CLI**，直连 REST API（`api.php/v1`）。只做 Bug：读详情 / 列表 / 搜索，写评论与状态流转。写操作默认 dry-run。
 
-不必 clone。MCP 启动时会带上用法（`instructions`）。也可 `npx -y @dannyvan/zentao-mcp skill` 打印同一份。
+不必 clone。MCP 启动时会带上用法（`instructions`）。
 
 ## 安装
 
+MCP：
+
 ```bash
 npx -y @dannyvan/zentao-mcp
+```
+
+把 skill 装到本机 agent（识别已安装的工具，并询问装哪几家，与得到大脑 `npx skills add iswalle/getnote-cli` 相同）：
+
+```bash
+npx -y @dannyvan/zentao-mcp install-skill
+# 等同于：npx skills add dannyvan/zentao-mcp -g
 ```
 
 发布到 npm 之前，可在本仓 `npm install && npm run build` 后用 `node dist/index.js`。

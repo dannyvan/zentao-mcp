@@ -1,6 +1,6 @@
 {
   "name": "@dannyvan/zentao-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "禅道 MCP + CLI，直连 REST API v1。只做 Bug，写操作默认 dry-run。",
   "type": "module",
   "main": "dist/index.js",

@@ -34,6 +34,7 @@
 4. **不改私有源仓。** 那边继续给内网用，默认实例可以留。
 5. **第一版不扩对象。** 需求 / 任务 / 项目 / 执行 / 附件不进本仓。要扩另开一轮设计。
 6. **本机新公开仓放在 `Work/Codes/github.com/` 下，不套组织目录。** 与现有 `dsh-*` 一致。
+7. **Skill 分发走公开通道**（2026-09-09 定）：仓内 `skills/zentao-mcp/SKILL.md`，使用者 `npx skills add dannyvan/zentao-mcp -g` 或本包 `install-skill`。由 Skills CLI 识别本机 agent 并询问装哪几家。本仓文档与代码不写任何使用者机器上的私有安装器。
 
 ## 架构
 
@@ -110,4 +111,4 @@ npm view @dannyvan/zentao-mcp name version bin
 - 不扩需求 / 任务 / 项目 / 附件
 - 不把 `dist` 提交进 git
 - 不设 CI 自动 publish
-- 不改私有源仓、不改本机全局 MCP（禅道 MCP 仍按需给项目，不配全局）
+- 不改私有源仓
