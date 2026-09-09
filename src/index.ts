@@ -42,7 +42,7 @@ async function serve(): Promise<void> {
   assertUrl();
   assertAuth();
   const server = new McpServer(
-    { name: "zentao-mcp", version: "0.1.2" },
+    { name: "zentao-mcp", version: "0.1.3" },
     { instructions: skillInstructions() },
   );
   const client = clientFromEnv();
