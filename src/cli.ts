@@ -4,6 +4,7 @@
  * 写操作默认 dry-run，必须显式 --confirm 才真正提交。
  * 输出一律 JSON；出错时 JSON 写 stderr，退出码非 0。
  */
+import { spawnSync } from "node:child_process";
 import { ZentaoClient, clientFromEnv, formatZentaoError } from "./zentao-client.js";
 import { skillInstructions } from "./skill.js";
 
@@ -13,6 +14,7 @@ const USAGE = `zentao-mcp —— 禅道 CLI / MCP 双门面
   zentao-mcp                          以 MCP server 启动（stdio，默认）
   zentao-mcp serve                    同上，显式写法
   zentao-mcp skill                    打印给 agent 的用法（无需认证）
+  zentao-mcp install-skill            装到本机已检测到的 agent（会询问装哪几家）
   zentao-mcp <命令> [参数]             CLI 模式
 
 读命令（无副作用）:
@@ -97,6 +99,16 @@ async function highRisk(
   out({ ok: true, dryRun: false, result: await exec() });
 }
 
+/** 与得到大脑相同：交给 `npx skills add`，由它识别本机 agent 并询问装哪几家。 */
+function installSkill(extra: string[]): void {
+  const r = spawnSync(
+    "npx",
+    ["-y", "skills", "add", "dannyvan/zentao-mcp", "-g", ...extra],
+    { stdio: "inherit" },
+  );
+  process.exit(r.status ?? 1);
+}
+
 export async function runCli(argv: string[]): Promise<void> {
   const [command, ...rest] = argv;
   if (!command || command === "help" || command === "--help" || command === "-h") {
@@ -105,6 +117,10 @@ export async function runCli(argv: string[]): Promise<void> {
   }
   if (command === "skill") {
     console.log(skillInstructions());
+    return;
+  }
+  if (command === "install-skill") {
+    installSkill(rest);
     return;
   }
 
