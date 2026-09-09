@@ -58,7 +58,7 @@
 
 - `name`: `@dannyvan/zentao-mcp`
 - `bin`: `{ "zentao-mcp": "bin/zentao-mcp" }`（薄包装，保证本仓目录里 `npx` 也能找到命令）
-- `files`: `["dist", "README.md"]`
+- `files`: `["dist", "bin", "scripts", "README.md", "skills"]`
 - `publishConfig.access`: `public`
 - `prepublishOnly`: `npm run build`
 - `engines.node`: `>=18`
